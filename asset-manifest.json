@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/productivity-timer/static/css/main.a06c52f5.css",
+    "main.js": "/productivity-timer/static/js/main.45e89b4a.js",
+    "static/js/453.99bf5bf5.chunk.js": "/productivity-timer/static/js/453.99bf5bf5.chunk.js",
+    "index.html": "/productivity-timer/index.html",
+    "main.a06c52f5.css.map": "/productivity-timer/static/css/main.a06c52f5.css.map",
+    "main.45e89b4a.js.map": "/productivity-timer/static/js/main.45e89b4a.js.map",
+    "453.99bf5bf5.chunk.js.map": "/productivity-timer/static/js/453.99bf5bf5.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a06c52f5.css",
+    "static/js/main.45e89b4a.js"
+  ]
+}

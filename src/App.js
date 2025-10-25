@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Play, Pause, Square, RotateCcw, Timer, Clock, Coffee, Target, Settings, Maximize, Minimize, Moon, Sun } from 'lucide-react';
+import BackgroundSettings from './components/BackgroundSettings';
 
 const ProductivityTimer = () => {
   const [activeTab, setActiveTab] = useState('pomodoro');
@@ -17,9 +18,25 @@ const ProductivityTimer = () => {
   const [realTime, setRealTime] = useState(new Date());
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [backgroundConfig, setBackgroundConfig] = useState({
+    type: 'gradient',
+    colors: ['#667eea', '#764ba2'],
+    angle: 135
+  });
   
   const intervalRef = useRef(null);
   const audioRef = useRef(null);
+
+  // Generate background style based on config
+  const getBackgroundStyle = () => {
+    if (backgroundConfig.type === 'solid') {
+      return { background: backgroundConfig.colors[0] };
+    } else {
+      return {
+        background: `linear-gradient(${backgroundConfig.angle}deg, ${backgroundConfig.colors.join(', ')})`
+      };
+    }
+  };
 
   // Real-time clock update
   useEffect(() => {
@@ -166,6 +183,23 @@ const ProductivityTimer = () => {
     }
   };
 
+  // Load background config from localStorage on mount
+  useEffect(() => {
+    const savedBackground = localStorage.getItem('backgroundConfig');
+    if (savedBackground) {
+      try {
+        setBackgroundConfig(JSON.parse(savedBackground));
+      } catch (error) {
+        console.error('Failed to load background config:', error);
+      }
+    }
+  }, []);
+
+  // Save background config to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem('backgroundConfig', JSON.stringify(backgroundConfig));
+  }, [backgroundConfig]);
+
   const tabs = [
     { id: 'pomodoro', label: 'Pomodoro', icon: Timer },
     { id: 'stopwatch', label: 'Stopwatch', icon: Target },
@@ -173,12 +207,15 @@ const ProductivityTimer = () => {
   ];
 
   return (
-    <div className={`min-h-screen flex items-center justify-center transition-colors duration-300 ${
-      isDarkMode ? 'bg-gray-900' : 'bg-gray-50'
-    } ${isFullscreen ? 'p-0' : 'p-4'}`}>
+    <div 
+      className={`min-h-screen flex items-center justify-center transition-colors duration-300 ${
+        isFullscreen ? 'p-0' : 'p-4'
+      }`}
+      style={getBackgroundStyle()}
+    >
       <div className={`rounded-3xl shadow-xl w-full transition-all duration-300 ${
         isFullscreen ? 'max-w-none h-screen rounded-none p-16 flex flex-col justify-center' : 'max-w-md p-8'
-      } ${isDarkMode ? 'bg-gray-800' : 'bg-white'}`}>
+      } ${isDarkMode ? 'bg-gray-800/80 backdrop-blur-md' : 'bg-white/80 backdrop-blur-md'}`}>
         {/* Header with controls - hidden in fullscreen when timer is running */}
         <div className={`flex justify-between items-center mb-8 transition-opacity duration-500 ${
           isFullscreen && isRunning ? 'opacity-0 pointer-events-none' : 'opacity-100'
@@ -229,22 +266,24 @@ const ProductivityTimer = () => {
         <div className={`rounded-2xl p-1 mb-8 transition-opacity duration-500 ${
           isDarkMode ? 'bg-gray-700' : 'bg-gray-100'
         } ${isFullscreen && isRunning ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
-          {tabs.map(({ id, label, icon: Icon }) => (
-            <button
-              key={id}
-              onClick={() => setActiveTab(id)}
-              className={`flex-1 flex items-center justify-center gap-2 rounded-xl transition-all duration-200 ${
-                isFullscreen ? 'py-4 px-6' : 'py-3 px-4'
-              } ${
-                activeTab === id
-                  ? `${isDarkMode ? 'bg-gray-600 text-blue-400' : 'bg-white text-blue-600'} shadow-sm`
-                  : `${isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-800'}`
-              }`}
-            >
-              <Icon size={isFullscreen ? 20 : 16} />
-              <span className={`font-medium ${isFullscreen ? 'text-base' : 'text-sm'}`}>{label}</span>
-            </button>
-          ))}
+          <div className="flex gap-1">
+            {tabs.map(({ id, label, icon: Icon }) => (
+              <button
+                key={id}
+                onClick={() => setActiveTab(id)}
+                className={`flex-1 flex items-center justify-center gap-2 rounded-xl transition-all duration-200 ${
+                  isFullscreen ? 'py-4 px-6' : 'py-3 px-4'
+                } ${
+                  activeTab === id
+                    ? `${isDarkMode ? 'bg-gray-600 text-blue-400' : 'bg-white text-blue-600'} shadow-sm`
+                    : `${isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-800'}`
+                }`}
+              >
+                <Icon size={isFullscreen ? 20 : 16} />
+                <span className={`font-medium ${isFullscreen ? 'text-base' : 'text-sm'}`}>{label}</span>
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* Timer Display */}
@@ -365,6 +404,18 @@ const ProductivityTimer = () => {
                       />
                     </div>
                   ))}
+                </div>
+                
+                {/* Background Settings */}
+                <div className="mt-6 pt-4 border-t border-gray-200 dark:border-gray-600">
+                  <h3 className={`text-lg font-medium mb-4 ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>
+                    Background Settings
+                  </h3>
+                  <BackgroundSettings 
+                    backgroundConfig={backgroundConfig}
+                    setBackgroundConfig={setBackgroundConfig}
+                    isDarkMode={isDarkMode}
+                  />
                 </div>
               </div>
             )}

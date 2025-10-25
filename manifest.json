@@ -1,6 +1,6 @@
 {
-  "short_name": "Focus Timer",
-  "name": "Boost your productivity with this customizable Pomodoro timer and stopwatch. Track your work and break sessions, and stay focused on your goals.",
+  "short_name": "DazImo",
+  "name": "DazImo - Pomodoro & Productivity Timer",
   "icons": [
     {
       "src": "favicon.ico",
@@ -20,6 +20,7 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#667eea",
+  "background_color": "#ffffff",
+  "description": "Boost your productivity with DazImo - Pomodoro timer and focus tools"
 }

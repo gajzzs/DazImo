@@ -1,8 +1,8 @@
 {
-  "name": "productivity-timer",
+  "name": "dazimo",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://acksyndude.github.io/productivity-timer",
+  "homepage": "https://gajzzs.github.io/productivity-timer",
   "dependencies": {
     "@tailwindcss/postcss": "^4.1.11",
     "@testing-library/dom": "^10.4.1",

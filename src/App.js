@@ -224,7 +224,7 @@ const ProductivityTimer = () => {
             <h1 className={`font-light mb-2 transition-all duration-300 ${
               isFullscreen ? 'text-4xl' : 'text-2xl'
             } ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>
-              Focus Timer
+              DazImo
             </h1>
             <div className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-500'} ${
               isFullscreen ? 'text-lg' : ''

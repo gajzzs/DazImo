@@ -214,8 +214,8 @@ const ProductivityTimer = () => {
       style={getBackgroundStyle()}
     >
       <div className={`rounded-3xl shadow-xl w-full transition-all duration-300 ${
-        isFullscreen ? 'max-w-none h-screen rounded-none p-16 flex flex-col justify-center' : 'max-w-md p-8'
-      } ${isDarkMode ? 'bg-gray-800/80 backdrop-blur-md' : 'bg-white/80 backdrop-blur-md'}`}>
+        isFullscreen ? 'max-w-none h-screen rounded-none bg-white/60 p-16 flex flex-col justify-center' : 'max-w-md p-8'
+      } ${isDarkMode ? 'bg-gray-900/60 backdrop-blur-md' : 'bg-white/60 backdrop-blur-md'}`}>
         {/* Header with controls - hidden in fullscreen when timer is running */}
         <div className={`flex justify-between items-center mb-8 transition-opacity duration-500 ${
           isFullscreen && isRunning ? 'opacity-0 pointer-events-none' : 'opacity-100'
@@ -223,7 +223,7 @@ const ProductivityTimer = () => {
           <div className="text-center flex-1">
             <h1 className={`font-light mb-2 transition-all duration-300 ${
               isFullscreen ? 'text-4xl' : 'text-2xl'
-            } ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>
+            } ${isDarkMode ? 'text-white' : 'text-gray-600'}`}>
               DazImo
             </h1>
             <div className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-500'} ${

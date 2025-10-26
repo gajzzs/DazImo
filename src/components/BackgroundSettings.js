@@ -24,7 +24,7 @@ const BackgroundSettings = ({
   ];
 
   const addColor = () => {
-    const newColors = [...backgroundConfig.colors, '#667eea'];
+    const newColors = [...backgroundConfig.colors, '#f5deb3'];
     setBackgroundConfig({ ...backgroundConfig, colors: newColors });
   };
 

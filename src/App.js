@@ -11,7 +11,7 @@ const ProductivityTimer = () => {
     work: 25,
     shortBreak: 5,
     longBreak: 15
-  });
+  }); 
   const [currentSession, setCurrentSession] = useState('work');
   const [sessionCount, setSessionCount] = useState(0);
   const [showSettings, setShowSettings] = useState(false);
@@ -20,7 +20,7 @@ const ProductivityTimer = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [backgroundConfig, setBackgroundConfig] = useState({
     type: 'gradient',
-    colors: ['#667eea', '#764ba2'],
+    colors: ['#b22222', '#c54b8c'],
     angle: 135
   });
   
@@ -220,10 +220,10 @@ const ProductivityTimer = () => {
         <div className={`flex justify-between items-center mb-8 transition-opacity duration-500 ${
           isFullscreen && isRunning ? 'opacity-0 pointer-events-none' : 'opacity-100'
         }`}>
-          <div className="text-center flex-1">
+          <div className="flex-1">
             <h1 className={`font-light mb-2 transition-all duration-300 ${
               isFullscreen ? 'text-4xl' : 'text-2xl'
-            } ${isDarkMode ? 'text-white' : 'text-gray-600'}`}>
+            } ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>
               DazImo
             </h1>
             <div className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-500'} ${

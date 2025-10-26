@@ -1,6 +1,6 @@
 # DazImo - Pomodoro Timer & Productivity Stopwatch
 
-Simple stopwatch and promodoro timer for focused session.
+Simple stopwatch and pomodoro timer for focused session.
 
 The main features are the background gradients and colors. I want to make sure they're actually helpful for users.
 

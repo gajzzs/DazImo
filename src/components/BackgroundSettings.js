@@ -17,10 +17,10 @@ const BackgroundSettings = ({
     { name: 'Introspection Only', type: 'solid', colors: ['#009e60'] },
     { name: 'Creative Only', type: 'solid', colors: ['#f5deb3'] },
     { name: 'Systematic & Practical Effect', type: 'solid', colors: ['#00ffff'] },
-    { name: 'Love, Harmony & Pece Effect', type: 'gradient', colors: ['#ffff00', '#c54b8c', '#c54b8c'], angle: 45 }, // 2 ,6 ,4
-    { name: 'Focus & Achievements', type: 'gradient', colors: ['#00ffff', '#007fff', '#eb284f'], angle: 45 }, // 8,1,4
-    { name: 'Freedom Light, Deep Thinking & Unique as leader', type: 'gradient', colors: ['#ccccff', '#c54b8c', '#eb284f'], angle: 90 }, // 5,7,1
-    { name: 'Degrade Negative Thoughts by allow every thoughts', type: 'gradient', colors: ['#b22222', '#ccccff', '#c54b8c', '#ffff00'], angle: 45 }, // 9 , 5 ,6 ,2
+    { name: 'Love, Harmony & Pece Effect', type: 'gradient', colors: ['#ffff00', '#c54b8c', '#c54b8c'], angle: 135 }, // 2 ,6 ,4
+    { name: 'Focus & Achievements', type: 'gradient', colors: ['#00ffff', '#007fff', '#eb284f'], angle: 135 }, // 8,1,4
+    { name: 'Freedom Light, Deep Thinking & Unique as leader', type: 'gradient', colors: ['#ccccff', '#c54b8c', '#eb284f'], angle: 135 }, // 5,7,1
+    { name: 'Degrade Negative Thoughts by allow every thoughts', type: 'gradient', colors: ['#b22222', '#ccccff', '#c54b8c', '#ffff00'], angle: 135 }, // 9 , 5 ,6 ,2
   ];
 
   const addColor = () => {
